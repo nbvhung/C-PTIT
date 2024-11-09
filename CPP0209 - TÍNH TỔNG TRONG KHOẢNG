@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int main() {
+	int t; cin >> t;
+	while (t--) {
+        int n,q; cin>>n>>q;
+        int a[n+1];
+        for(int i=1; i<=n; i++) cin>>a[i];
+        int F[n+1];
+        memset(F, 0, sizeof(F));
+        for(int i=1; i<=n; i++){
+            F[i] = F[i-1] + a[i];
+        }
+        while(q--){
+            int l,r; cin>>l>>r;
+    	    cout<<F[r]-F[l-1]<<endl;
+        }
+    }
+}
