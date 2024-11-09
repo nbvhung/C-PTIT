@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int check(int n){
+    int c=0, l=0;
+    while(n){
+        int tmp = n%10;
+        if(tmp%2==0) c++;
+        else l++;
+        n/=10;
+    }
+    return c == l;
+}
+
+int main(){
+    int n; cin>>n;
+    int cnt=0;
+    for(int i=pow(10,n-1); i<=pow(10,n); i++){
+        if(check(i)){
+            cout<<i<<" "; cnt++;
+            if(cnt%10 == 0) cout<<endl;
+        }
+    }
+}
