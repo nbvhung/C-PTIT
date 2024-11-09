@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int main(){
+    int t; cin>>t;
+    while(t--){
+        double x,y,z,t;
+        cin>>x>>y>>z>>t;
+        cout<<fixed<<setprecision(4)<<sqrt(pow(z-x,2)+pow(t-y,2))<<endl;
+    }
+}
