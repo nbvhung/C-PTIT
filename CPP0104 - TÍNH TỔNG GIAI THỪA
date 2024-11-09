@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+long long int solve(int n){
+    ll sum = 1, s=0;
+    for(int i=1; i<=n; i++){
+        sum *= i;
+        s += sum;
+    }
+    return s;
+}
+
+int main(){
+    int n; cin>>n;
+    cout<<solve(n);
+}
