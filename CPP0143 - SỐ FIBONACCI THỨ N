@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+ll f[93];
+ll fibo(){
+    f[0] = 1; f[1] = 1;
+    for(int i=2; i<92; i++){
+        f[i] = f[i-1] + f[i-2];
+    }
+}
+
+int main() {
+	int t; cin >> t;
+	while (t--) {
+		int n; cin >> n;
+		long long int F[100];
+		F[0] = 1;
+		F[1] = 1;
+		for (int i = 2; i < 92; i++)
+			F[i] = F[i-2] + F[i - 1];
+		cout << F[n - 1] << endl;
+	}
+}
