@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+struct PhanSo{
+    ll tu, mau;
+};
+
+void nhap(PhanSo &p){
+    cin>>p.tu>>p.mau;
+}
+
+void in(PhanSo q){
+    cout<<q.tu<<"/"<<q.mau;
+}
+
+ll gcd(ll a, ll b){
+    if(b==0) return a;
+    return gcd(b,a%b);
+}
+
+ll lcm(ll a, ll b){
+    return a/gcd(a,b)*b;
+}
+
+PhanSo tong(PhanSo &p, PhanSo &q){
+    PhanSo sum;
+    ll mc = lcm(p.mau, q.mau);
+    sum.mau = mc;
+    p.tu = mc/p.mau * p.tu;
+    q.tu = mc/q.mau * q.tu;
+    q.mau = p.mau = mc;
+    sum.tu = q.tu + p.tu;
+    ll tmp = gcd(sum.tu,sum.mau);
+    sum.tu /= tmp;
+    sum.mau /=tmp;
+    return sum;
+}
+
+int main() {
+	struct PhanSo p,q;
+	nhap(p); nhap(q);
+	PhanSo t = tong(p,q);
+	in(t);
+	return 0;
+}
