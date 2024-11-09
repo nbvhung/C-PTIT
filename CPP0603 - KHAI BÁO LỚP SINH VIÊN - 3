@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+
+string chuanhoa(string &tmp){
+    tmp[0] = toupper(tmp[0]);
+    for(int i=1; i<tmp.size(); i++){
+        tmp[i] = tolower(tmp[i]);
+    }
+    return tmp;
+}
+
+class SinhVien{
+
+    private: 
+        string ma, ten, lop, ns;
+        double gpa; 
+    
+    public:
+        SinhVien(){
+            this->ma = ma;
+            this->ten = ten;
+            this->lop = lop;
+            this->ns = ns;
+            this->gpa = gpa;
+        }
+
+        
+
+        friend istream &operator >> (istream &in, SinhVien &a){
+            a.ma = "B20DCCN001";
+            getline(in, a.ten);
+            stringstream ss(a.ten);
+            string tmp;
+            a.ten = "";
+            while(ss>>tmp){
+                tmp[0] = toupper(tmp[0]);
+                for(int i=1; i<tmp.size(); i++){
+                    tmp[i] = tolower(tmp[i]);
+                }
+                a.ten += tmp + " ";
+            } 
+            a.ten.erase(a.ten.end() - 1);
+            getline(in,a.lop);
+            getline(in,a.ns);
+            cin>>a.gpa;
+            if(a.ns[1]=='/') a.ns = "0" + a.ns;
+            if(a.ns[4]=='/') a.ns.insert(3,"0");
+            return in;
+        } 
+
+        friend ostream &operator << (ostream &out, SinhVien a){
+            out<<a.ma<<" "<<a.ten<<" "<<a.lop<<" "<<a.ns<<fixed<<setprecision(2)<<" "<<a.gpa<<endl;
+            return out;
+        }
+};
+
+
+
+int main(){
+    SinhVien a;
+    cin >> a;
+    cout << a;
+    return 0;
+}
