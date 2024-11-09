@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int mod = 1e9+7;
+ll solve(int a[], int n, int x){
+    ll res=0;
+    for(int i=0; i<n; i++){
+        res = res*x+a[i];
+        res %= mod;
+    }
+    return res;
+}
+
+int main(){
+    int t; cin>>t;
+    while(t--){
+        int n,x; cin>>n>>x;
+        int a[n];
+        for(int i=0; i<n; i++) cin>>a[i];
+        
+        cout<<solve(a,n,x)<<endl;
+    }
+}
