@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+class NhanVien{
+    private: 
+        string ten, gt, ns, dc, mst, hd, ma; 
+    
+    public:
+        NhanVien(){
+            this->ma = "00001";
+            this->ten = ten;
+            this->gt = gt;
+            this->ns = ns;
+            this->dc = dc;
+            this->mst = mst;
+            this->hd = hd;
+        }
+
+        friend istream &operator >> (istream &in, NhanVien &a){
+            getline(in, a.ten);
+            in>>a.gt>>a.ns;
+            in.ignore();
+            getline(in,a.dc);
+            in>>a.mst>>a.hd;
+            return in;
+        } 
+
+        friend ostream &operator >> (ostream &out, NhanVien a){
+            out<<a.ma<<" "<<a.ten<<" "<<a.gt<<" "<<a.ns<<" "<<a.dc<<" "<<a.mst<<" "<<a.hd;
+            return out;
+        }
+};
+
+
+
+int main(){
+    NhanVien a;
+    cin >> a;
+    cout >> a;
+    return 0;
+}
