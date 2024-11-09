@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int main() {
+    int t; cin>>t;
+    while(t--){
+        char s; cin >> s;
+		if (s >= 65 && s <= 90)
+		   s += 32;
+		else if (s >= 97 && s <= 122)
+			s -= 32;
+		cout << s<<endl;
+    }
+}
