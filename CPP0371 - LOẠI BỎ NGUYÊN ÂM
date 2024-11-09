@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+bool check(char s){
+    return !(s=='a' || s=='e' || s=='i' || s=='o' || s=='u' || s=='y');
+}
+
+string chuanhoa(string &s){
+    for(int i=0; i<s.size(); i++){
+        s[i] = tolower(s[i]);
+    }
+    return s;
+}
+
+int main(){
+    int t=1; ;
+    while(t--){
+        string s; cin>>s;
+        chuanhoa(s);
+        vector<char> v;
+        for(int i=0; i<s.size(); i++){
+            if(check(s[i])){
+                v.push_back(s[i]);
+            }
+        }
+        for(int i=0; i<v.size(); i++){
+            cout<<"."<<v[i];
+        }
+    }
+}
