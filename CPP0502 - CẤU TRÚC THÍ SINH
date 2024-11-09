@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+
+struct ThiSinh{
+    string ten, ns;
+    float a,b,c;
+};
+
+void nhap(ThiSinh &x){
+    getline(cin,x.ten);
+    cin>>x.ns>>x.a>>x.b>>x.c;
+}
+
+float sum(ThiSinh x){
+    return x.a+x.b+x.c;
+}
+
+void in(ThiSinh x){
+    cout<<x.ten<<" "<<x.ns<<" "<<fixed<<setprecision(1)<<sum(x)<<endl;
+}
+
+int main(){
+    struct ThiSinh A;
+    nhap(A);
+    in(A);
+    return 0;
+}
