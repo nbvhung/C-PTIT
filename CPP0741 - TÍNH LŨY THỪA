@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+ll powmod(ll n, ll m, ll p){
+    if(m==0) return 1;
+    if(m == 1) return n%p;
+    ll x = powmod(n,m/2,p);
+    if(m%2==0) return 1ll*((x*x)%p)%p;
+    else return 1ll*((x*x)%p*n)%p;
+}
+
+int main(){
+    int t; cin>>t;
+    while(t--){
+        ll n,m; ll p; cin>>n>>m>>p;
+        cout<<powmod(n,m,p)<<endl;
+    }
+}
