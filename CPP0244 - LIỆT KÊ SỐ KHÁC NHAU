@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+
+int main() {
+    int n; cin>>n;
+    int a[n];
+    set<int> se;
+    for(int &x : a){
+        cin>>x;
+        se.insert(x);
+    }
+    for(int x : se) cout<<x<<" ";
+}
