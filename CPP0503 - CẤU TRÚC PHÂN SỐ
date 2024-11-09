@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+struct PhanSo{
+    ll tu, mau;
+};
+
+void nhap(PhanSo &x){
+    cin>>x.tu>>x.mau;
+}
+
+ll gcd(ll a, ll b){
+    if(b==0) return a;
+    return gcd(b,a%b);
+}
+
+ll lcm(ll a,ll b){
+    return a/gcd(a,b)*b;
+}
+
+void rutgon(PhanSo &p){
+    ll uc = gcd(p.tu,p.mau);
+    p.tu/=uc;
+    p.mau/=uc;
+}
+
+void in(PhanSo x){
+    cout<<x.tu<<"/"<<x.mau;
+}
+
+int main() {
+	struct PhanSo p;
+	nhap(p);
+	rutgon(p);
+	in(p);
+	return 0;
+}
