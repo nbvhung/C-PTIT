@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+ll gcd(ll a, ll b){
+    if(!b) return a;
+    return gcd(b,a%b);
+}
+
+struct SinhVien{
+    string ten, msv, ns;
+    double gpa;
+    string lop = "N20DCCN001";
+};
+
+void nhapThongTinSV(SinhVien &a){
+    getline(cin,a.ten);
+    cin>>a.msv>>a.ns>>a.gpa;
+    if(a.ns[1] == '/') a.ns = "0" + a.ns;
+    if(a.ns[4] == '/') a.ns.insert(3,"0");
+}
+
+void inThongTinSV(SinhVien a){
+    cout<<a.lop<<" "<<a.ten<<" "<<a.msv<<" "<<a.ns<<" "<<fixed<<setprecision(2)<<a.gpa<<endl;
+}
+
+int main(){
+    struct SinhVien a;
+    nhapThongTinSV(a);
+    inThongTinSV(a);
+    return 0;
+}
