@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+bool solve(string n){
+    int l=0, r=n.size()-1;
+    while(l<=r){
+        if(n[l] != n[r]) {
+            return false;
+        }
+        l++; r--;
+    }
+    return true;
+}
+
+int main(){
+    int t; cin>>t;
+    while(t--){
+        string s; cin>>s;
+        if(solve(s)){
+            cout<<"YES\n";
+        }
+        else cout<<"NO\n";
+    }
+}
+
