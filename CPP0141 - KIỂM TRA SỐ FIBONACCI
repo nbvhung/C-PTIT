@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+
+ll f[100];
+
+int main(){
+    int t; cin>>t;
+    map<ll,bool> mp;
+    f[0] = 0; f[1] = 1;
+    mp[0] = mp[1] = true;
+    for(int i=2; i<92; i++){
+        f[i] = f[i-1] + f[i-2];
+        mp[f[i]] = true; 
+    }
+    while(t--){
+        ll n; cin>>n;
+        if(mp[n]){
+            cout<<"YES\n";
+        }
+        else cout<<"NO\n";
+    }
+}
