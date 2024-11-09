@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+
+bool mod(string s){
+    int lt=1;
+    int res = (s[s.size()-1]-'0')%5;
+    for(int i=s.size()-2; i>=0; i--){
+        lt *= 2;
+        lt %= 5;
+        res += ((s[i]-'0')*lt);
+        res %= 5;
+    }
+    return res == 0;
+}
+
+int main() {
+    int t; cin>>t;
+    while(t--){
+        string s; cin>>s;
+        if(mod(s)) cout<<"Yes\n";
+        else cout<<"No\n";
+    }
+}
