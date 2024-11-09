@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int main() {
+    int t; cin>>t;
+    cin.ignore();
+    while(t--){
+        string s, x;
+        getline(cin, s);
+        vector<string> v;
+        stringstream ss(s);
+        string tmp;
+        while(ss >> tmp){
+            v.push_back(tmp);
+        }
+        string s1 = "";
+        vector<string> v1;
+        if(v[0]=="101"){
+            s1 = "A B B A D C C A B D C C A B D";
+            stringstream ss1(s1);
+            while(ss1 >> tmp){
+                v1.push_back(tmp);
+            }
+        }
+        else if(v[0]=="102"){
+            s1 = "A C C A B C D D B B C D D B B";
+            stringstream ss1(s1);
+            while(ss1 >> tmp){
+                v1.push_back(tmp);
+            }
+        }
+        double res = 0;
+        for(int i=0; i<v.size()-1; i++){
+            if(v[i+1] == v1[i]){
+                res += 1.0*10/15;
+            }
+        }
+        cout<<fixed<<setprecision(2)<<res<<endl;
+    }
+}
