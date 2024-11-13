@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+
+int cnt=0;
+class NhanVien{
+
+    private: 
+        string ten, gt, ns, dc, mst, hd, ma; 
+    
+    public:
+        NhanVien(){
+            this->ma = ma;
+            this->ten = ten;
+            this->gt = gt;
+            this->ns = ns;
+            this->dc = dc;
+            this->mst = mst;
+            this->hd = hd;
+        }
+
+        friend istream &operator >> (istream &in, NhanVien &a){
+            cnt++;
+            a.ma = "000";
+            if(cnt < 10){
+                a.ma += "0" + to_string(cnt);
+            }
+            else a.ma += to_string(cnt);
+            in.ignore();
+            getline(in, a.ten);
+            getline(in,a.gt);
+            getline(in,a.ns);
+            getline(in,a.dc);
+            in>>a.mst>>a.hd;
+            return in;
+        } 
+
+        friend ostream &operator << (ostream &out, NhanVien a){
+            out<<a.ma<<" "<<a.ten<<" "<<a.gt<<" "<<a.ns<<" "<<a.dc<<" "<<a.mst<<" "<<a.hd<<endl;
+            return out;
+        }
+};
+
+
+
+int main(){
+    NhanVien ds[50];
+    int N,i;
+    cin >> N;
+    for(i=0;i<N;i++) cin >> ds[i];
+    for(i=0;i<N;i++) cout << ds[i];
+    return 0;
+}
