@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+
+int main(){
+    int n; cin>>n;
+    int a[n][n];
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++) cin>>a[i][j];
+    }
+    int m; cin>>m;
+    int b[m][m];
+    for(int i=0; i<m; i++){
+        for(int j=0; j<n; j++) cin>>b[i][j];
+    }
+    for(int i=0; i<n; i+=m){
+        for(int j=0; j<n; j+=m){
+            for(int l=0; l<m; l++){
+                for(int k=0; k<m; k++){
+                    a[i+l][j+k] *= b[l][k];
+                }
+            }
+        }
+    }
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            cout<<a[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
