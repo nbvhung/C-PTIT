@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+struct SinhVien{
+    string ma="B20DCCN", ten, lop, ns;
+    double gpa;
+};
+
+void nhap(SinhVien a[], int n){
+    for(int i=0; i<n; i++){
+        cin.ignore();
+        getline(cin,a[i].ten);
+        stringstream ss(a[i].ten);
+        string tmp;
+        vector<string> v;
+        while(ss >> tmp){
+            tmp[0] = toupper(tmp[0]);
+            for(int i=1; i<tmp.size(); i++){
+                tmp[i] = tolower(tmp[i]);
+            }
+            v.push_back(tmp);
+        }
+        string res = "";
+        for(int i=0; i<v.size(); i++){
+            res += v[i] + " ";
+        }
+        res.pop_back();
+        a[i].ten = res;
+        cin>>a[i].lop>>a[i].ns>>a[i].gpa;
+        if(a[i].ns[1]=='/') a[i].ns = "0" + a[i].ns;
+        if(a[i].ns[4]=='/') a[i].ns.insert(3,"0");
+        if(i<9){
+            a[i].ma += "00" + to_string(i+1);
+        }
+        else a[i].ma += "0" + to_string(i+1);
+    }
+}
+
+bool cmp(SinhVien a, SinhVien b){
+    return a.gpa > b.gpa;
+}
+
+void sapxep(SinhVien a[], int n){
+    sort(a,a+n,cmp);
+}
+
+void in(SinhVien a[], int n){
+    for(int i=0; i<n; i++){
+        cout<<a[i].ma<<" "<<a[i].ten<<" "<<a[i].lop<<" "<<a[i].ns<<" "<<fixed<<setprecision(2)<<a[i].gpa<<endl;
+    }
+}
+
+int main(){
+    struct SinhVien ds[50];
+    int N;
+    cin >> N;
+    nhap(ds, N);
+    sapxep(ds,N);
+    in(ds, N);
+    return 0;
+}
